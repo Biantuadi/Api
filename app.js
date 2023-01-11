@@ -16,12 +16,18 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });
-  
+
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // pour les formulaires
 
 // db
-require("./config/db");
+// require("./config/db");
+const mongoose = require('mongoose');
+const password = "1uhYc2Qyjid4tzgE";
+const username = "KBB";
+const dbName = "Etna_api";
+const url = `mongodb+srv://${username}:${password}@cluster0.y0gnr7k.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
  
 // routes
 const userRouter = require("./routes/user.router");
