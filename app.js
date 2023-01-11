@@ -22,13 +22,7 @@ const allowCors = fn => async (req, res) => {
   return await fn(req, res)
 }
 
-// const handler = (req, res) => {
-//   const d = new Date()
-//   res.end(d.toString())
-// }
-
-app.use(allowCors())
-
+app.use(allowCors);
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // pour les formulaires
 
