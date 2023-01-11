@@ -16,6 +16,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });
+  
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // pour les formulaires
 
