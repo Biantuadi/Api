@@ -3,7 +3,7 @@ const router = experss.Router();
 const productController = require("../ctrl/product.ctrl");
 const auth = require("../middlewares/auth");
 
-router.get("/products", productController.getProducts);
+router.get("/products", auth, productController.getProducts);
 router.get("/product/:id", auth, productController.getProduct);
 router.post("/product/create", auth, productController.createProduct);
 router.put("/product/:id", auth, productController.updateProduct);
