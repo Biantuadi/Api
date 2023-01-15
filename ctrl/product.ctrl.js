@@ -1,6 +1,6 @@
 const Product = require("../models/product.model");
 
-exports.getProducts = (req, res ) => {
+exports.getProducts = (req, res) => {
   Product.find()
     .then((products) => {
       res.status(200).json({
@@ -16,7 +16,7 @@ exports.getProducts = (req, res ) => {
     });
 };
 
-exports.getProduct = (req, res ) => {
+exports.getProduct = (req, res) => {
   Product.findById(req.params.id)
     .then((product) => {
       if (product) {
@@ -33,7 +33,7 @@ exports.getProduct = (req, res ) => {
     });
 };
 
-exports.createProduct = (req, res ) => {
+exports.createProduct = (req, res) => {
   const product = new Product({
     ...req.body,
     price: Number(req.body.price),
@@ -57,7 +57,7 @@ exports.createProduct = (req, res ) => {
     });
 };
 
-exports.updateProduct = (req, res ) => {
+exports.updateProduct = (req, res) => {
   const product = new Product({
     _id: req.params.id,
     ...req.body,
@@ -77,7 +77,7 @@ exports.updateProduct = (req, res ) => {
     });
 };
 
-exports.deleteProduct = (req, res ) => {
+exports.deleteProduct = (req, res) => {
   Product.deleteOne({ _id: req.params.id })
     .then(() => {
       res.status(200).json({

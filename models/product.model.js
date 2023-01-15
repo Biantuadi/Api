@@ -6,7 +6,6 @@ const ProductSchema = new Schema({
   price: { type: Number, required: true },
   description: {
     type: String,
-    required: true,
     default: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
   },
   imageUrl: { type: String, required: true },
@@ -14,9 +13,7 @@ const ProductSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
-    // supprimer le produit si l'utilisateur est supprimé
-    // delete: "CASCADE",
-    delete: "SET NULL",
+    cascade: "deleteMany",
   },
 });
 
